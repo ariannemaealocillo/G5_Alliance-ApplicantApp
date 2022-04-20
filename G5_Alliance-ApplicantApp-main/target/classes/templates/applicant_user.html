@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Employee Data Form</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<script src="https://kit.fontawesome.com/598821329d.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+	.center {
+	  margin: auto;
+	  width: 60%;
+	  border: 5px solid gainsboro;
+	  padding: 10px;
+	  text-align: center;
+	  position: fixed;
+	  top: 50%;
+	  left: 50%;
+	  transform: translate(-50%, -50%);
+	}
+	
+	body {
+	  margin: 0;
+	  font-family: Arial, Helvetica, sans-serif;
+	  background-color:ghostwhite;
+	}
+	
+	.topnav {
+	  overflow: hidden;
+	  background-color: red;
+	}
+	
+	.topnav a {
+	  float: right;
+	  color: black;
+	  text-align: center;
+	  padding: 14px 16px;
+	  text-decoration: none;
+	  font-size: 20px;
+	}
+	
+	.topnav a:hover {
+	  background-color:white;
+	  color: black;
+	}
+	
+	.topnav a.active {
+	  background-color: white;
+	  color: white;
+	  float:left;
+	}
+	
+	.input{
+	  margin-left: 5px;
+	  margin-top: 5px;
+	}
+	
+</style>
+</head>
+<body>
+	
+ 	<div class="topnav">
+ 	 <a href="/"><i class="fa-solid fa-house"></i></a>
+ 	 <a class="active"><img src ="https://www.alliance.com.ph/images/asi-logo-invert.svg" alt="alliance-logo">
+	</div>
+	
+	<div class="container">
+		<h1>Employment Data Form</h1>
+		<hr>
+		<form action="#" th:action="@{/createEmployee}" th:object="${employee}"
+			method="POST" class="form-inline">
+				<input type="date" th:field="*{adateApplied}"
+				placeholder="Date" class="form-control mb-4 col-5">
+				
+				&nbsp; &nbsp; &nbsp;
+
+				<input type="text" th:field="*{ajobPos}" list="positions"
+				placeholder="Select Position Applied" class="form-control mb-4 col-5">
+				
+				<datalist id="positions">
+					<option value="Java Developer"/>
+					<option value="C# Developer"/>
+					<option value="Full Stack Developer"/>
+					<option value="PHP Developer"/>
+				</datalist>
+		
+			 	<h2 style="background-color:red; color:white">I. Personal Information &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+			 	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+			 	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+			 	&nbsp; &nbsp; &nbsp; &nbsp;</h2>
+				
+				<input type="text" th:field="*{alastName}"  maxlength="30"
+				placeholder="Last Name" class="form-control mb-4 col-3">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{afirstName}"  maxlength="30"
+				placeholder="First Name" class="form-control mb-4 col-3">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{amidName}"  maxlength="30"
+				placeholder="Middle Name" class="form-control mb-4 col-3">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="date" th:field="*{abdate}"
+				placeholder="dd/mm/yyyy" class="form-control mb-4 col-2">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{areligion}" list="religion"
+				placeholder="Religion" class="form-control mb-4 col-2">
+				&nbsp; &nbsp; &nbsp;
+				
+				<datalist id="religion">
+					<option value="Roman Catholic"/>
+					<option value="Evangelical"/>
+					<option value="Iglesia ni Cristo"/>
+					<option value="Aglipayan"/>
+					<option value="Protestant"/>
+					<option value="Baptist"/>
+					<option value="Seventh Day Adventist"/>
+					<option value="Pentecostal"/>
+					<option value="Anglican"/>
+					<option value="Orthodox"/>
+					<option value="Methodist"/>
+				</datalist>
+				
+				<input type="text" th:field="*{asex}" list="sex"
+				placeholder="Sex" class="form-control mb-4 col-2">
+				&nbsp; &nbsp; &nbsp;
+				
+				<datalist id="sex">
+					<option value="Male"/>
+					<option value="Female"/>
+				</datalist>
+				
+				<input type="text" th:field="*{aage}"  maxlength="3"
+				placeholder="Age" class="form-control mb-4 col-1">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{acityAdd}"
+				placeholder="City Address" class="form-control mb-4 col-3">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{aprovAdd}"
+				placeholder="Provincial Address" class="form-control mb-4 col-3">
+				
+				<input type="text" th:field="*{atelNum}"  maxlength="11"
+				placeholder="Telephone Number" class="form-control mb-4 col-1">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{amobileNum}"  maxlength="11"
+				placeholder="Mobile Number" class="form-control mb-4 col-2">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{aemailAdd}"  maxlength="40"
+				placeholder="Email Address" class="form-control mb-4 col-2">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{aphilNum}"  maxlength="12"
+				placeholder="Philhealth Number" class="form-control mb-4 col-2">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{asssNum}"  maxlength="10"
+				placeholder="SSS No." class="form-control mb-4 col-1">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{atinNum}"  maxlength="9"
+				placeholder="TIN No." class="form-control mb-4 col-1">
+				&nbsp; &nbsp; &nbsp;
+		
+				<input type="text" th:field="*{conName}"
+				placeholder="Contact Person" class="form-control mb-4 col-3">
+				&nbsp; &nbsp; &nbsp;
+
+				<input type="text" th:field="*{conNum}"
+				placeholder="Contact Number" class="form-control mb-4 col-2">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{conRelation}"
+				placeholder="Relationship" class="form-control mb-4 col-2">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{conAddress}"
+				placeholder="Contact Person's Address" class="form-control mb-4 col-3">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{spouseName}"
+				placeholder="Spouse" class="form-control mb-4 col-3">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{spouseOccup}"
+				placeholder="Occupation" class="form-control mb-4 col-2">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{spouseComp}"
+				placeholder="Company" class="form-control mb-4 col-2">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{spouseAge}"
+				placeholder="Age" class="form-control mb-4 col-2">
+				&nbsp; &nbsp; &nbsp;
+				
+				<label>Name of Dependents &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+				&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+				&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;</label>
+				<label>Age &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+				&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+				&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;</label>
+				<label>Relation &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+				&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+				&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+				&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+				&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
+				</label>
+				
+				<input type="text" th:field="*{depName1}"
+				placeholder="Name" class="form-control mb-4 col-3">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{depAge1}"
+				placeholder="Age" class="form-control mb-4 col-2">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{depRelation1}"
+				placeholder="Relationship" class="form-control mb-4 col-2">
+				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
+				&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
+				&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
+				
+				<input type="text" th:field="*{depName2}"
+				placeholder="Name" class="form-control mb-4 col-3">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{depAge2}"
+				placeholder="Age" class="form-control mb-4 col-2">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{depRelation2}"
+				placeholder="Relationship" class="form-control mb-4 col-2">
+				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
+				&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
+				&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
+				
+				<input type="text" th:field="*{depName3}"
+				placeholder="Name" class="form-control mb-4 col-3">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{depAge3}"
+				placeholder="Age" class="form-control mb-4 col-2">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{depRelation3}"
+				placeholder="Relationship" class="form-control mb-4 col-2">
+				
+				<h2 style="background-color:red; color:white">II. Family Background &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+			 	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+			 	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+			 	&nbsp; &nbsp; &nbsp; &nbsp;</h2>
+			 	
+			 	<input type="text" th:field="*{fbfatherName}"
+				placeholder="Father" class="form-control mb-4 col-3">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{fbfatherOccup}"
+				placeholder="Occupation" class="form-control mb-4 col-2">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{fbfatherComp}"
+				placeholder="Company" class="form-control mb-4 col-3">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{fbfatherAge}"
+				placeholder="Age" class="form-control mb-4 col-2">
+				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{fbmotherName}"
+				placeholder="Mother" class="form-control mb-4 col-3">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{fbmotherOccup}"
+				placeholder="Occupation" class="form-control mb-4 col-2">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{fbmotherComp}"
+				placeholder="Company" class="form-control mb-4 col-3">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{fbmotherAge}"
+				placeholder="Age" class="form-control mb-4 col-2">
+				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{fbNumSiblings}"
+				placeholder="Number of Siblings" class="form-control mb-4 col-2">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{fbBirthOrder}" list="order"
+				placeholder="Birth Order" class="form-control mb-4 col-2">
+				&nbsp; &nbsp; &nbsp;
+				
+				<datalist id="order">
+					<option value="First"/>
+					<option value="Second"/>
+					<option value="Third"/>
+					<option value="Fourth"/>
+					<option value="Fifth"/>
+				</datalist>
+				
+				<h2 style="background-color:red; color:white">III. Educational Background &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+			 	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+			 	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+			 	</h2>
+			 	
+			 	<input type="text" th:field="*{educNameGS}"
+				placeholder="Grade School" class="form-control mb-4 col-3">
+				&nbsp; &nbsp; &nbsp;
+			 	
+			 	<input type="text" th:field="*{educYrsGS}"
+				placeholder="Years Attended" class="form-control mb-4 col-2">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{educDegreeGS}"
+				placeholder="Degree" class="form-control mb-4 col-3">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{educAchievementGS}"
+				placeholder="Achievement" class="form-control mb-4 col-3">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{educNameHS}"
+				placeholder="High School" class="form-control mb-4 col-3">
+				&nbsp; &nbsp; &nbsp;
+			 	
+			 	<input type="text" th:field="*{educYrsHS}"
+				placeholder="Years Attended" class="form-control mb-4 col-2">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{educYrsHS}"
+				placeholder="Degree" class="form-control mb-4 col-3">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{educAchievementHS}"
+				placeholder="Achievement" class="form-control mb-4 col-3">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{educNameCS}"
+				placeholder="College" class="form-control mb-4 col-3">
+				&nbsp; &nbsp; &nbsp;
+			 	
+			 	<input type="text" th:field="*{educYrsCS}"
+				placeholder="Years Attended" class="form-control mb-4 col-2">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{educDegreeCS}"
+				placeholder="Degree" class="form-control mb-4 col-3">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{educAchievementCS}"
+				placeholder="Achievement" class="form-control mb-4 col-3">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{educNameMS}"
+				placeholder="Masters / Others" class="form-control mb-4 col-3">
+				&nbsp; &nbsp; &nbsp;
+			 	
+			 	<input type="text" th:field="*{educYrsMS}"
+				placeholder="Years Attended" class="form-control mb-4 col-2">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{educDegreeMS}"
+				placeholder="Degree" class="form-control mb-4 col-3">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{educAchievementMS}"
+				placeholder="Achievement" class="form-control mb-4 col-3">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{thesisSubj}"
+				placeholder="Project/Thesis Subject" class="form-control mb-4 col-3">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{thesisTitle}"
+				placeholder="Thesis Title" class="form-control mb-4 col-3">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{thesisProgLang}"
+				placeholder="Prog. Language Used" class="form-control mb-4 col-2">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{thesisDesc}"
+				placeholder="Description" class="form-control mb-4 col-3">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{thesisRole}"
+				placeholder="Role" class="form-control mb-4 col-3">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{thesisTName}"
+				placeholder="Teacher's Name" class="form-control mb-4 col-3">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{thesisContactNum}"
+				placeholder="Contact No." class="form-control mb-4 col-2">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{thesisGrade}"
+				placeholder="Grade" class="form-control mb-4 col-2">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{extraActOne}"
+				placeholder="Extra Curricular Activity" class="form-control mb-4 col-3">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{extraActOneRole}"
+				placeholder="Role" class="form-control mb-4 col-2">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{extraActTwo}"
+				placeholder="Extra Curricular Activity" class="form-control mb-4 col-3">
+				&nbsp; &nbsp; &nbsp;
+				
+				<input type="text" th:field="*{extraActTwoRole}"
+				placeholder="Role" class="form-control mb-4 col-2">
+				&nbsp; &nbsp; &nbsp;
+				
+		</form>
+		
+		<button type="submit" class="btn btn-info col-2"> Save Applicant</button>
+		
+	
+		<!-- <a th:href = "@{/}"> Back to Applicant List</a> -->
+	</div>
+</body>
+</html>
