@@ -73,6 +73,11 @@ public class ApplicantsController {
 		String[] conNum = request.getParameterValues("conNum");
 		String[] conRelation = request.getParameterValues("conRelation");
 		String[] conAddress = request.getParameterValues("conAddress");
+		
+		for(int i = 0; i < conName.length; i++)
+		{
+			applicant.addConPerson(conName[i], conNum[i], conRelation[i], conAddress[i]);
+		}
 
 		applicantsService.saveApplicant(applicant);
 		return "redirect:/";
@@ -158,8 +163,6 @@ public class ApplicantsController {
     @RequestMapping(value = {"/logout"}, method = RequestMethod.POST)
     public String logoutDo(HttpServletRequest request,HttpServletResponse response)
     {
-    
-  
         return "redirect:/login";
     }
  

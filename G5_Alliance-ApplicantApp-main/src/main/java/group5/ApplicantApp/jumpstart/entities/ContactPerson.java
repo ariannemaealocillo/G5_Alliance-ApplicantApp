@@ -21,7 +21,7 @@ public class ContactPerson {
 	private String conName;
 	
 	@Column(name = "contact_num")
-	private int conNum;
+	private String conNum;
 	
 	@Column(name = "contact_relationship", columnDefinition= "VARCHAR(20)")
 	private String conRelation;
@@ -36,7 +36,7 @@ public class ContactPerson {
 	public ContactPerson() {
 	}
 
-	public ContactPerson(String conName, int conNum, String conRelation, String conAddress,
+	public ContactPerson(String conName, String conNum, String conRelation, String conAddress,
 			Applicant applicant) {
 		super();
 		this.conName = conName;
@@ -62,11 +62,11 @@ public class ContactPerson {
 		this.conName = conName;
 	}
 
-	public int getConNum() {
+	public String getConNum() {
 		return conNum;
 	}
 
-	public void setConNum(int conNum) {
+	public void setConNum(String conNum) {
 		this.conNum = conNum;
 	}
 
@@ -92,6 +92,12 @@ public class ContactPerson {
 
 	public void setApplicant(Applicant applicant) {
 		this.applicant = applicant;
+	}
+	
+	@Override
+	public String toString()
+	{
+		return conName + " " + conNum + " " + conRelation + "" + conAddress;
 	}
 	
 }

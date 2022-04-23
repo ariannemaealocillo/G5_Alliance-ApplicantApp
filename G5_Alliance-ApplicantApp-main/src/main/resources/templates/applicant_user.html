@@ -74,10 +74,10 @@
 		<hr>
 		<form action="#" th:action="@{/createApplicant}" th:object="${applicant}"
 			method="POST" class="form-inline">
-				<input type="date" th:field="*{app_dateApplied}"
+				<input type="date" name="app_dateApplied"
 				placeholder="Date" class="form-control mb-4 col-5">
 
-				<input type="text" th:field="*{ajobPos}" list="positions"
+				<input type="text" name="ajobPos" list="positions"
 				placeholder="Select Position Applied" class="form-control mb-4 col-5" style="margin-left:40px">
 				
 				<datalist id="positions">
@@ -89,19 +89,19 @@
 		
 			 	<h2 style="background-color:red; color:white; margin-right: 600px">I. Personal Information </h2>
 				
-				<input type="text" th:field="*{alastName}"  maxlength="30"
+				<input type="text" name="alastName"  maxlength="30"
 				placeholder="Last Name" class="form-control mb-4 col-3" style="margin-right:20px">
 				
-				<input type="text" th:field="*{afirstName}"  maxlength="30"
+				<input type="text" name="afirstName"  maxlength="30"
 				placeholder="First Name" class="form-control mb-4 col-3" style="margin-right:20px">
 				
-				<input type="text" th:field="*{amidName}"  maxlength="30"
+				<input type="text" name="amidName"  maxlength="30"
 				placeholder="Middle Name" class="form-control mb-4 col-3" style="margin-right:20px">
 				
-				<input type="date" th:field="*{app_birthdate}"
+				<input type="date" name="app_birthdate"
 				placeholder="dd/mm/yyyy" class="form-control mb-4 col-2" style="margin-right:20px">
 				
-				<input type="text" th:field="*{areligion}" list="religion"
+				<input type="text" name="areligion" list="religion"
 				placeholder="Religion" class="form-control mb-4 col-2" style="margin-right:20px">
 				
 				<datalist id="religion">
@@ -118,7 +118,7 @@
 					<option value="Methodist"/>
 				</datalist>
 				
-				<input type="text" th:field="*{asex}" list="sex"
+				<input type="text" name="asex" list="sex"
 				placeholder="Sex" class="form-control mb-4 col-2" style="margin-right:20px">
 				
 				<datalist id="sex">
@@ -126,31 +126,31 @@
 					<option value="Female"/>
 				</datalist>
 				
-				<input type="text" th:field="*{aage}"  maxlength="3"
+				<input type="number" name="aage"  min="18" max="120"
 				placeholder="Age" class="form-control mb-4 col-1" style="margin-right:20px">
 				
-				<input type="text" th:field="*{acityAdd}"
+				<input type="text" name="acityAdd"
 				placeholder="City Address" class="form-control mb-4 col-3" style="margin-right:20px">
 				
-				<input type="text" th:field="*{aprovAdd}"
+				<input type="text" name="aprovAdd"
 				placeholder="Provincial Address" class="form-control mb-4 col-3">
 				
-				<input type="text" th:field="*{atelNum}"  maxlength="11"
-				placeholder="Telephone Number" class="form-control mb-4 col-1" style="margin-right:20px">
+				<input type="number" name="atelNum" maxlength="11"
+				placeholder="Telephone Number" class="form-control mb-4 col-2" style="margin-right:20px">
 				
-				<input type="text" th:field="*{amobileNum}"  maxlength="11"
+				<input type="number" name="amobileNum"  maxlength="11"
 				placeholder="Mobile Number" class="form-control mb-4 col-2" style="margin-right:20px">
 				
-				<input type="text" th:field="*{aemailAdd}"  maxlength="40"
+				<input type="text" name="aemailAdd"  maxlength="40"
 				placeholder="Email Address" class="form-control mb-4 col-2" style="margin-right:20px">
 				
-				<input type="text" th:field="*{aphilNum}"  maxlength="12"
+				<input type="number" name="aphilNum"  maxlength="12"
 				placeholder="Philhealth Number" class="form-control mb-4 col-2" style="margin-right:20px">
 				
-				<input type="text" th:field="*{asssNum}"  maxlength="10"
+				<input type="number" name="asssNum"  maxlength="10"
 				placeholder="SSS No." class="form-control mb-4 col-1" style="margin-right:20px">
 				
-				<input type="text" th:field="*{atinNum}"  maxlength="9"
+				<input type="number" name="atinNum"  maxlength="9"
 				placeholder="TIN No." class="form-control mb-4 col-1" style="margin-right:20px">
 				
 				<input type="text" name="conName"
@@ -165,9 +165,8 @@
 				<input type="text" name="conAddress"
 				placeholder="Contact Person's Address" class="form-control mb-4 col-3" style="margin-right:20px">
 				
+				<button type="submit" class="btn btn-info col-2"> Submit </button>
 		</form>
-		
-		<button type="submit" class="btn btn-info col-2"> Next </button>
 	
 		<!-- <a th:href = "@{/}"> Back to Applicant List</a> -->
 	</div>

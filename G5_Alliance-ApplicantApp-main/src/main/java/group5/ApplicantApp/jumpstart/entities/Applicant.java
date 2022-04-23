@@ -65,22 +65,22 @@ public class Applicant {
 	private String aprovAdd;
 	
 	@Column(name = "app_telNum")
-	private int atelNum;
+	private String atelNum;
 	
 	@Column(name = "app_mobileNum")
-	private int amobileNum;
+	private String amobileNum;
 	
 	@Column(name = "app_emailAdd", columnDefinition= "VARCHAR(70)")
 	private String aemailAdd;
 	
 	@Column(name = "app_philhealth")
-	private int aphilNum;
+	private String aphilNum;
 	
 	@Column(name = "app_sssNum")
-	private int asssNum;
+	private String asssNum;
 	
 	@Column(name = "app_tinNum")
-	private int atinNum;
+	private String atinNum;
 	
 	//Foreign Keys
 	@OneToMany(mappedBy = "applicant",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
@@ -182,19 +182,19 @@ public class Applicant {
 		this.aprovAdd = aprovAdd;
 	}
 
-	public int getAtelNum() {
+	public String getAtelNum() {
 		return atelNum;
 	}
 
-	public void setAtelNum(int atelNum) {
+	public void setAtelNum(String atelNum) {
 		this.atelNum = atelNum;
 	}
 
-	public int getAmobileNum() {
+	public String getAmobileNum() {
 		return amobileNum;
 	}
 
-	public void setAmobileNum(int amobileNum) {
+	public void setAmobileNum(String amobileNum) {
 		this.amobileNum = amobileNum;
 	}
 
@@ -206,27 +206,27 @@ public class Applicant {
 		this.aemailAdd = aemailAdd;
 	}
 
-	public int getAphilNum() {
+	public String getAphilNum() {
 		return aphilNum;
 	}
 
-	public void setAphilNum(int aphilNum) {
+	public void setAphilNum(String aphilNum) {
 		this.aphilNum = aphilNum;
 	}
 
-	public int getAsssNum() {
+	public String getAsssNum() {
 		return asssNum;
 	}
 
-	public void setAsssNum(int asssNum) {
+	public void setAsssNum(String asssNum) {
 		this.asssNum = asssNum;
 	}
 
-	public int getAtinNum() {
+	public String getAtinNum() {
 		return atinNum;
 	}
 
-	public void setAtinNum(int atinNum) {
+	public void setAtinNum(String atinNum) {
 		this.atinNum = atinNum;
 	}
 
@@ -236,6 +236,10 @@ public class Applicant {
 
 	public void setConPerson(List<ContactPerson> conPerson) {
 		this.conPerson = conPerson;
+	}
+
+	public void addConPerson(String conName, String conNum, String conRelation, String conAddress) {
+		this.conPerson.add(new ContactPerson(conName, conNum, conRelation, conAddress, this));
 	}
 
 }
