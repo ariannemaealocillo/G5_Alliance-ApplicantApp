@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import group5.ApplicantApp.jumpstart.entities.Applicant;
-import group5.ApplicantApp.jumpstart.entities.ContactPerson;
 import group5.ApplicantApp.jumpstart.entities.Login;
 import group5.ApplicantApp.jumpstart.service.ApplicantsService;
 import group5.ApplicantApp.jumpstart.service.LoginService;
@@ -67,8 +66,8 @@ public class ApplicantsController {
 	
 	@PostMapping("/createApplicant")
 	public String createApplicant(@ModelAttribute("applicant") Applicant applicant,HttpServletRequest request) {
-		// create applicants to database
 		
+		//Save Contact Person Details to database
 		String[] conName = request.getParameterValues("conName");
 		String[] conNum = request.getParameterValues("conNum");
 		String[] conRelation = request.getParameterValues("conRelation");
@@ -78,7 +77,34 @@ public class ApplicantsController {
 		{
 			applicant.addConPerson(conName[i], conNum[i], conRelation[i], conAddress[i]);
 		}
-
+		
+		//Save Spouse Details to database
+		String[] spouseName = request.getParameterValues("spouseName");
+		String[] spouseOccup = request.getParameterValues("spouseOccup");
+		String[] spouseComp = request.getParameterValues("spouseComp");
+		String[] spouseAge = request.getParameterValues("spouseAge");
+				
+		for(int i = 0; i < spouseName.length; i++)
+		{
+			applicant.addSpouse(spouseName[i], spouseOccup[i], spouseComp[i], spouseAge[i]);
+		}
+		
+		//Save Dependent Details to database
+		String[] depName1 = request.getParameterValues("depName1");
+		String[] depAge1 = request.getParameterValues("depAge1");
+		String[] depRelation1 = request.getParameterValues("depRelation1");
+		String[] depName2 = request.getParameterValues("depName2");
+		String[] depAge2 = request.getParameterValues("depAge2");
+		String[] depRelation2 = request.getParameterValues("depRelation2");
+		String[] depName3 = request.getParameterValues("depName3");
+		String[] depAge3 = request.getParameterValues("depAge3");
+		String[] depRelation3 = request.getParameterValues("depRelation3");
+						
+		for(int i = 0; i < depName1.length; i++)
+		{
+			applicant.addDependent(depName1[i], depAge1[i], depRelation1[i], depName2[i], depAge2[i], depRelation2[i], depName3[i], depAge3[i], depRelation3[i]);
+		}		
+				
 		applicantsService.saveApplicant(applicant);
 		return "redirect:/";
 	}
@@ -101,8 +127,7 @@ public class ApplicantsController {
 		this.applicantsService.deleteApplicantById(id);
 		return "redirect:/hrPage";
 	}
-	
-	
+
 	@GetMapping("/page/{pageNo}")
 	public String findPaginated(@PathVariable (value = "pageNo") int pageNo, 
 			@RequestParam("sortField") String sortField,
@@ -129,8 +154,7 @@ public class ApplicantsController {
 	
 	@Autowired
     private LoginService userService;
- 
-                                  
+                       
     @GetMapping("/login")
           
     public ModelAndView login() {
@@ -141,23 +165,13 @@ public class ApplicantsController {
  
     @PostMapping("/login")
     public String login(@ModelAttribute("user") Login user ) {
-    
      Login oauthUser = userService.login(user.getEmail(), user.getPassword());
-    
- 
      System.out.print(oauthUser);
-     if(Objects.nonNull(oauthUser))
-     {
-  
-     return "redirect:/hrPage";
-    
-    
+     if(Objects.nonNull(oauthUser)){
+    	 return "redirect:/hrPage";
      } else {
      return "redirect:/login";
-    
-    
      }
- 
 }
     
     @RequestMapping(value = {"/logout"}, method = RequestMethod.POST)
@@ -165,7 +179,4 @@ public class ApplicantsController {
     {
         return "redirect:/login";
     }
- 
-	
-	
 }

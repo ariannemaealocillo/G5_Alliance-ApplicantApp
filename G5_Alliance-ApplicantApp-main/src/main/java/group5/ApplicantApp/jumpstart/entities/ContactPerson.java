@@ -97,7 +97,7 @@ public class ContactPerson {
 	@Override
 	public String toString()
 	{
-		return conName + " " + conNum + " " + conRelation + "" + conAddress;
+		return conName + " " + conNum + " " + conRelation + " " + conAddress;
 	}
 	
 }
