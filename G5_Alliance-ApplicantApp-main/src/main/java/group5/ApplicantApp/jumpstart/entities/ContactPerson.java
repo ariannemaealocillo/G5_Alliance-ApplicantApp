@@ -20,7 +20,7 @@ public class ContactPerson {
 	@Column(name = "contact_name", columnDefinition= "VARCHAR(50)")
 	private String conName;
 	
-	@Column(name = "contact_num")
+	@Column(name = "contact_num", columnDefinition= "VARCHAR(20)")
 	private String conNum;
 	
 	@Column(name = "contact_relationship", columnDefinition= "VARCHAR(20)")

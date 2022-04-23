@@ -64,22 +64,22 @@ public class Applicant {
 	@Column(name = "app_provAdd", columnDefinition= "VARCHAR(70)")
 	private String aprovAdd;
 	
-	@Column(name = "app_telNum")
+	@Column(name = "app_telNum", columnDefinition= "VARCHAR(20)")
 	private String atelNum;
 	
-	@Column(name = "app_mobileNum")
+	@Column(name = "app_mobileNum", columnDefinition= "VARCHAR(20)")
 	private String amobileNum;
 	
 	@Column(name = "app_emailAdd", columnDefinition= "VARCHAR(70)")
 	private String aemailAdd;
 	
-	@Column(name = "app_philhealth")
+	@Column(name = "app_philhealth", columnDefinition= "VARCHAR(20)")
 	private String aphilNum;
 	
-	@Column(name = "app_sssNum")
+	@Column(name = "app_sssNum", columnDefinition= "VARCHAR(20)")
 	private String asssNum;
 	
-	@Column(name = "app_tinNum")
+	@Column(name = "app_tinNum", columnDefinition= "VARCHAR(20)")
 	private String atinNum;
 	
 	//Foreign Keys
