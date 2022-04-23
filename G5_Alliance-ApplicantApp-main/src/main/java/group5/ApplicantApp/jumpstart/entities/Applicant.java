@@ -85,6 +85,12 @@ public class Applicant {
 	//Foreign Keys
 	@OneToMany(mappedBy = "applicant",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	private List<ContactPerson>  conPerson = new ArrayList<>();
+	
+	@OneToMany(mappedBy = "applicant",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+	private List<Spouse>  appSpouse = new ArrayList<>();
+	
+	@OneToMany(mappedBy = "applicant",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+	private List<Dependent>  appDependent = new ArrayList<>();
 
 	public long getApp_id() {
 		return app_id;
@@ -237,9 +243,33 @@ public class Applicant {
 	public void setConPerson(List<ContactPerson> conPerson) {
 		this.conPerson = conPerson;
 	}
+	
+	public List<Spouse> getAppSpouse() {
+		return appSpouse;
+	}
+
+	public void setAppSpouse(List<Spouse> appSpouse) {
+		this.appSpouse = appSpouse;
+	}
+	
+	public List<Dependent> getAppDependent() {
+		return appDependent;
+	}
+
+	public void setAppDependent(List<Dependent> appDependent) {
+		this.appDependent = appDependent;
+	}
 
 	public void addConPerson(String conName, String conNum, String conRelation, String conAddress) {
 		this.conPerson.add(new ContactPerson(conName, conNum, conRelation, conAddress, this));
+	}
+	
+	public void addSpouse(String spouseName, String spouseOccup, String spouseComp, String spouseAge) {
+		this.appSpouse.add(new Spouse(spouseName, spouseOccup, spouseComp, spouseAge, this));
+	}
+	
+	public void addDependent(String depName1, String depAge1, String depRelation1, String depName2, String depAge2, String depRelation2, String depName3, String depAge3, String depRelation3){
+		this.appDependent.add(new Dependent(depName1, depAge1, depRelation1, depName2, depAge2, depRelation2, depName3, depAge3, depRelation3, this));
 	}
 
 }
