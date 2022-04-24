@@ -97,6 +97,9 @@ public class Applicant {
 	
 	@OneToMany(mappedBy = "applicant",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	private List<EducationalBg>  appEducBg = new ArrayList<>();
+	
+	@OneToMany(mappedBy = "applicant",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+	private List<Thesis>  appThesis = new ArrayList<>();
 
 	public long getApp_id() {
 		return app_id;
@@ -282,6 +285,14 @@ public class Applicant {
 		this.appEducBg = appEducBg;
 	}
 
+	public List<Thesis> getAppThesis() {
+		return appThesis;
+	}
+
+	public void setAppThesis(List<Thesis> appThesis) {
+		this.appThesis = appThesis;
+	}
+
 	public void addConPerson(String conName, String conNum, String conRelation, String conAddress) {
 		this.conPerson.add(new ContactPerson(conName, conNum, conRelation, conAddress, this));
 	}
@@ -298,18 +309,11 @@ public class Applicant {
 		this.appFamily.add(new Family(fbfatherName, fbfatherOccup, fbfatherComp, fbfatherAge, fbmotherName, fbmotherOccup, fbmotherComp, fbmotherAge, fbNumSiblings, fbBirthOrder,this));
 	}
 	
-	public void addEducBg(String educNameGS, String educYrsGS, String educDegreeGS, String educAchievementGS, String educNameHS, String educYrsHS, String educDegreeHS, String educAchievementHS, String fbNumSiblings, String fbBirthOrder){
-		this.appEducBg.add(new EducationalBg(fbfatherName, fbfatherOccup, fbfatherComp, fbfatherAge, fbmotherName, fbmotherOccup, fbmotherComp, fbmotherAge, fbNumSiblings, fbBirthOrder,this));
+	public void addEducBg(String educNameGS, String educYrsGS, String educDegreeGS, String educAchievementGS, String educNameHS, String educYrsHS, String educDegreeHS, String educAchievementHS, String educNameCS, String educYrsCS, String educDegreeCS, String educAchievementCS, String educNameMS, String educYrsMS, String educDegreeMS, String educAchievementMS){
+		this.appEducBg.add(new EducationalBg(educNameGS, educYrsGS, educDegreeGS, educAchievementGS, educNameHS, educYrsHS, educDegreeHS, educAchievementHS, educNameCS, educYrsCS, educDegreeCS, educAchievementCS, educNameMS, educYrsMS, educDegreeMS, educAchievementMS, this));
 	}
 	
-	this.educNameCS = educNameCS;
-	this.educYrsCS = educYrsCS;
-	this.educDegreeCS = educDegreeCS;
-	this.educAchievementCS = educAchievementCS;
-	this.educNameMS = educNameMS;
-	this.educYrsMS = educYrsMS;
-	this.educDegreeMS = educDegreeMS;
-	this.educAchievementMS = educAchievementMS;
-	this.applicant = applicant;
-}
+	public void addThesis(String thesisSubj, String thesisTitle, String thesisProgLang, String thesisDesc, String thesisRole, String thesisTName, String thesisContactNum, String thesisGrade){
+		this.appThesis.add(new Thesis(thesisSubj, thesisTitle, thesisProgLang, thesisDesc, thesisRole, thesisTName, thesisContactNum, thesisGrade, this));
+	}
 }

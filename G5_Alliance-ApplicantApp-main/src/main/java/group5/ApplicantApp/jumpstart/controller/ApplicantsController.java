@@ -121,6 +121,44 @@ public class ApplicantsController {
 		{
 			applicant.addFamily(fbfatherName[i], fbfatherOccup[i], fbfatherComp[i], fbfatherAge[i], fbmotherName[i], fbmotherOccup[i], fbmotherComp[i], fbmotherAge[i], fbNumSiblings[i], fbBirthOrder[i]);
 		}		
+		
+		//Save Education Details to database
+		String[] educNameGS = request.getParameterValues("educNameGS");
+		String[] educYrsGS = request.getParameterValues("educYrsGS");
+		String[] educDegreeGS = request.getParameterValues("educDegreeGS");
+		String[] educAchievementGS = request.getParameterValues("educAchievementGS");
+		String[] educNameHS = request.getParameterValues("educNameHS");
+		String[] educYrsHS = request.getParameterValues("educYrsHS");
+		String[] educDegreeHS = request.getParameterValues("educDegreeHS");
+		String[] educAchievementHS = request.getParameterValues("educAchievementHS");
+		String[] educNameCS = request.getParameterValues("educNameCS");
+		String[] educYrsCS = request.getParameterValues("educYrsCS");
+		String[] educDegreeCS = request.getParameterValues("educDegreeCS");
+		String[] educAchievementCS = request.getParameterValues("educAchievementCS");
+		String[] educNameMS = request.getParameterValues("educNameMS");
+		String[] educYrsMS = request.getParameterValues("educYrsMS");
+		String[] educDegreeMS = request.getParameterValues("educDegreeMS");
+		String[] educAchievementMS = request.getParameterValues("educAchievementMS");
+		
+		for(int i = 0; i < educNameGS.length; i++)
+		{
+			applicant.addEducBg(educNameGS[i], educYrsGS[i], educDegreeGS[i], educAchievementGS[i], educNameHS[i], educYrsHS[i], educDegreeHS[i], educAchievementHS[i], educNameCS[i], educYrsCS[i], educDegreeCS[i], educAchievementCS[i], educNameMS[i], educYrsMS[i], educDegreeMS[i], educAchievementMS[i]);
+		}		
+		
+		//Save Thesis Details to database
+		String[] thesisSubj = request.getParameterValues("thesisSubj");
+		String[] thesisTitle = request.getParameterValues("thesisTitle");
+		String[] thesisProgLang = request.getParameterValues("thesisProgLang");
+		String[] thesisDesc = request.getParameterValues("thesisDesc");
+		String[] thesisRole = request.getParameterValues("thesisRole");
+		String[] thesisTName = request.getParameterValues("thesisTName");
+		String[] thesisContactNum = request.getParameterValues("thesisContactNum");
+		String[] thesisGrade = request.getParameterValues("thesisGrade");
+		
+		for(int i = 0; i < thesisSubj.length; i++)
+		{
+			applicant.addThesis(thesisSubj[i], thesisTitle[i], thesisProgLang[i], thesisDesc[i], thesisRole[i], thesisTName[i], thesisContactNum[i], thesisGrade[i]);
+		}		
 				
 		applicantsService.saveApplicant(applicant);
 		return "redirect:/";
