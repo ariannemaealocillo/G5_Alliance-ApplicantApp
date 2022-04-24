@@ -104,6 +104,23 @@ public class ApplicantsController {
 		{
 			applicant.addDependent(depName1[i], depAge1[i], depRelation1[i], depName2[i], depAge2[i], depRelation2[i], depName3[i], depAge3[i], depRelation3[i]);
 		}		
+
+		//Save Family Details to database
+		String[] fbfatherName = request.getParameterValues("fbfatherName");
+		String[] fbfatherOccup = request.getParameterValues("fbfatherOccup");
+		String[] fbfatherComp = request.getParameterValues("fbfatherComp");
+		String[] fbfatherAge = request.getParameterValues("fbfatherAge");
+		String[] fbmotherName = request.getParameterValues("fbmotherName");
+		String[] fbmotherOccup = request.getParameterValues("fbmotherOccup");
+		String[] fbmotherComp = request.getParameterValues("fbmotherComp");
+		String[] fbmotherAge = request.getParameterValues("fbmotherAge");
+		String[] fbNumSiblings = request.getParameterValues("fbNumSiblings");
+		String[] fbBirthOrder = request.getParameterValues("fbBirthOrder");
+								
+		for(int i = 0; i < fbfatherName.length; i++)
+		{
+			applicant.addFamily(fbfatherName[i], fbfatherOccup[i], fbfatherComp[i], fbfatherAge[i], fbmotherName[i], fbmotherOccup[i], fbmotherComp[i], fbmotherAge[i], fbNumSiblings[i], fbBirthOrder[i]);
+		}		
 				
 		applicantsService.saveApplicant(applicant);
 		return "redirect:/";
