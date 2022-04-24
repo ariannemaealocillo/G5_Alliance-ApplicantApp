@@ -91,6 +91,12 @@ public class Applicant {
 	
 	@OneToMany(mappedBy = "applicant",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	private List<Dependent>  appDependent = new ArrayList<>();
+	
+	@OneToMany(mappedBy = "applicant",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+	private List<Family>  appFamily = new ArrayList<>();
+	
+	@OneToMany(mappedBy = "applicant",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+	private List<EducationalBg>  appEducBg = new ArrayList<>();
 
 	public long getApp_id() {
 		return app_id;
@@ -260,6 +266,22 @@ public class Applicant {
 		this.appDependent = appDependent;
 	}
 
+	public List<Family> getAppFamily() {
+		return appFamily;
+	}
+
+	public void setAppFamily(List<Family> appFamily) {
+		this.appFamily = appFamily;
+	}
+
+	public List<EducationalBg> getAppEducBg() {
+		return appEducBg;
+	}
+
+	public void setAppEducBg(List<EducationalBg> appEducBg) {
+		this.appEducBg = appEducBg;
+	}
+
 	public void addConPerson(String conName, String conNum, String conRelation, String conAddress) {
 		this.conPerson.add(new ContactPerson(conName, conNum, conRelation, conAddress, this));
 	}
@@ -271,5 +293,23 @@ public class Applicant {
 	public void addDependent(String depName1, String depAge1, String depRelation1, String depName2, String depAge2, String depRelation2, String depName3, String depAge3, String depRelation3){
 		this.appDependent.add(new Dependent(depName1, depAge1, depRelation1, depName2, depAge2, depRelation2, depName3, depAge3, depRelation3, this));
 	}
-
+	
+	public void addFamily(String fbfatherName, String fbfatherOccup, String fbfatherComp, String fbfatherAge, String fbmotherName, String fbmotherOccup, String fbmotherComp, String fbmotherAge, String fbNumSiblings, String fbBirthOrder){
+		this.appFamily.add(new Family(fbfatherName, fbfatherOccup, fbfatherComp, fbfatherAge, fbmotherName, fbmotherOccup, fbmotherComp, fbmotherAge, fbNumSiblings, fbBirthOrder,this));
+	}
+	
+	public void addEducBg(String educNameGS, String educYrsGS, String educDegreeGS, String educAchievementGS, String educNameHS, String educYrsHS, String educDegreeHS, String educAchievementHS, String fbNumSiblings, String fbBirthOrder){
+		this.appEducBg.add(new EducationalBg(fbfatherName, fbfatherOccup, fbfatherComp, fbfatherAge, fbmotherName, fbmotherOccup, fbmotherComp, fbmotherAge, fbNumSiblings, fbBirthOrder,this));
+	}
+	
+	this.educNameCS = educNameCS;
+	this.educYrsCS = educYrsCS;
+	this.educDegreeCS = educDegreeCS;
+	this.educAchievementCS = educAchievementCS;
+	this.educNameMS = educNameMS;
+	this.educYrsMS = educYrsMS;
+	this.educDegreeMS = educDegreeMS;
+	this.educAchievementMS = educAchievementMS;
+	this.applicant = applicant;
+}
 }
