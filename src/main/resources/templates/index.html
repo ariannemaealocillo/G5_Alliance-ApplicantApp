@@ -15,17 +15,66 @@
 input {
 float:right;
 margin-right:3%;
+
+.header{
+	background-color: #FF0000;
+
+}
+
+#logo{
+	position: relative;
+	top: 10px;
+	left: 10px;
+	width: 200px;
+	height: 50px;
+ 	background-color: #FFFFFF;
+ 	float: left;
+}
+
+#logout{
+	position: relative;
+	top: 10px;
+	right: 10px;
+	width: 100px;
+	height: 50px;
+ 	float: right;
+}
+
+.profile-ava{
+	float: right;
+}
+#profile{
+	width: 60px;
+	position: relative;
+	top: 5px;
+	right: 230px;
+}
+.username{
+	width: 60px;
+	position: relative;
+	top: 10px;
+	right: 350px;
+	float: right;
+}
 }
 </style>
 
 <body>
 
+<div class="header">
 
-  <form th:action="@{/logout}" method="post">
-        <input type="submit" class="btn btn-info" value="Logout" />
+			<span class="profile-ava">
+				<img id="profile" alt="" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png">
+			</span>
+	<img id="logo" src="https://www.alliance.com.ph/images/asi-logo-invert.svg" alt="Alliance">
+	<form th:action="@{/logout}" method="post">
+        <input id="logout" type="submit" class="btn btn-info" value="Logout" />
     </form>
-  
-
+    
+    <br>
+    <br>
+    <br>
+</div>
 
 	<div class="container my-4">
 	<h1>Applicant List</h1>
