@@ -17,28 +17,28 @@ public class Thesis {
 	@GeneratedValue(strategy =  GenerationType.IDENTITY)
 	private long thesis_id;
 	
-	@Column(name = "thesis_sub")
+	@Column(name = "thesis_sub", columnDefinition= "VARCHAR(50)")
 	private String thesisSubj;
 	
-	@Column(name = "thesis_title")
+	@Column(name = "thesis_title", columnDefinition= "VARCHAR(50)")
 	private String thesisTitle;
 	
-	@Column(name = "thesis_progLang")
+	@Column(name = "thesis_progLang", columnDefinition= "VARCHAR(50)")
 	private String thesisProgLang;
 	
-	@Column(name = "thesis_desc")
+	@Column(name = "thesis_desc", columnDefinition= "VARCHAR(60)")
 	private String thesisDesc;
 	
-	@Column(name = "thesis_role")
+	@Column(name = "thesis_role", columnDefinition= "VARCHAR(30)")
 	private String thesisRole;
 	
-	@Column(name = "thesis_teachersName")
+	@Column(name = "thesis_teachersName", columnDefinition= "VARCHAR(30)")
 	private String thesisTName;
 	
-	@Column(name = "thesis_contactNum")
+	@Column(name = "thesis_contactNum", columnDefinition= "VARCHAR(20)")
 	private String thesisContactNum;
 	
-	@Column(name = "thesis_grade")
+	@Column(name = "thesis_grade", columnDefinition= "VARCHAR(10)")
 	private String thesisGrade;
 	
 	@ManyToOne

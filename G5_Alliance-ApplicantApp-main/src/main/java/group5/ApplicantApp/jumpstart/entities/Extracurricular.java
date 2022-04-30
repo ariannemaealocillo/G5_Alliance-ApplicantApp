@@ -17,16 +17,16 @@ public class Extracurricular {
 	@GeneratedValue(strategy =  GenerationType.IDENTITY)
 	private long extra_id;
 	
-	@Column(name = "extraAct_one")
+	@Column(name = "extraAct_one", columnDefinition= "VARCHAR(30)")
 	private String extraActOne;
 	
-	@Column(name = "extraAct_one_role")
+	@Column(name = "extraAct_one_role", columnDefinition= "VARCHAR(20)")
 	private String extraActOneRole;
 	
-	@Column(name = "extraAct_two")
+	@Column(name = "extraAct_two", columnDefinition= "VARCHAR(30)")
 	private String extraActTwo;
 	
-	@Column(name = "extraAct_two_role")
+	@Column(name = "extraAct_two_role", columnDefinition= "VARCHAR(20)")
 	private String extraActTwoRole;
 	
 	@ManyToOne
@@ -97,7 +97,6 @@ public class Extracurricular {
 	@Override
 	public String toString()
 	{
-		return thesisSubj + " " + thesisTitle + " " + thesisProgLang + " " + thesisDesc + " " + thesisRole + " " + thesisTName + " "
-				+ thesisContactNum + " " + thesisGrade;
+		return extraActOne + " " + extraActOneRole + " " + extraActTwo + " " + extraActTwoRole;
 	}
 }

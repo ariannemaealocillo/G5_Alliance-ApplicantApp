@@ -158,8 +158,86 @@ public class ApplicantsController {
 		for(int i = 0; i < thesisSubj.length; i++)
 		{
 			applicant.addThesis(thesisSubj[i], thesisTitle[i], thesisProgLang[i], thesisDesc[i], thesisRole[i], thesisTName[i], thesisContactNum[i], thesisGrade[i]);
-		}		
+		}	
+		
+		//Save Extracurricular Details to database
+		String[] extraActOne = request.getParameterValues("extraActOne");
+		String[] extraActOneRole = request.getParameterValues("extraActOneRole");
+		String[] extraActTwo = request.getParameterValues("extraActTwo");
+		String[] extraActTwoRole = request.getParameterValues("extraActTwoRole");
 				
+		for(int i = 0; i < extraActOne.length; i++)
+		{
+			applicant.addExtraCurr(extraActOne[i], extraActOneRole[i], extraActTwo[i], extraActTwoRole[i]);
+		}		
+		
+		//Save Work Experience Details to database
+		String[] wrkCompOne = request.getParameterValues("wrkCompOne");
+		String[] wrkOne_dur = request.getParameterValues("wrkOne_dur");
+		String[] wrkOne_pos = request.getParameterValues("wrkOne_pos");
+		String[] wrkOne_sal = request.getParameterValues("wrkOne_sal");
+		String[] wrkOne_dirtSV = request.getParameterValues("wrkOne_dirtSV");
+		String[] wrkOne_reasonfl = request.getParameterValues("wrkOne_reasonfl");
+		String[] wrkCompTwo = request.getParameterValues("wrkCompTwo");
+		String[] wrkTwo_dur = request.getParameterValues("wrkTwo_dur");
+		String[] wrkTwo_pos = request.getParameterValues("wrkTwo_pos");
+		String[] wrkTwo_sal = request.getParameterValues("wrkTwo_sal");
+		String[] wrkTwo_dirtSV = request.getParameterValues("wrkTwo_dirtSV");
+		String[] wrkTwo_reasonfl = request.getParameterValues("wrkTwo_reasonfl");
+		String[] wrkCompThree = request.getParameterValues("wrkCompThree");
+		String[] wrkThree_dur = request.getParameterValues("wrkThree_dur");
+		String[] wrkThree_pos = request.getParameterValues("wrkThree_pos");
+		String[] wrkThree_sal = request.getParameterValues("wrkThree_sal");
+		String[] wrkThree_dirtSV = request.getParameterValues("wrkThree_dirtSV");
+		String[] wrkThree_reasonfl = request.getParameterValues("wrkThree_reasonfl");
+		String[] wrk_carPlanDesc = request.getParameterValues("wrk_carPlanDesc");
+		String[] wrk_dateAvail = request.getParameterValues("wrk_dateAvail");
+		String[] wrk_expectedSal = request.getParameterValues("wrk_expectedSal");
+		String[] wrk_willTT = request.getParameterValues("wrk_willTT");
+						
+		for(int i = 0; i < wrkCompOne.length; i++)
+		{
+			applicant.addWorkExp(wrkCompOne[i], wrkOne_dur[i], wrkOne_pos[i], wrkOne_sal[i], wrkOne_dirtSV[i], wrkOne_reasonfl[i],
+					  			   wrkCompTwo[i], wrkTwo_dur[i], wrkTwo_pos[i], wrkTwo_sal[i], wrkTwo_dirtSV[i], wrkTwo_reasonfl[i],
+					  			   wrkCompThree[i],wrkThree_dur[i], wrkThree_pos[i], wrkThree_sal[i], wrkThree_dirtSV[i], wrkThree_reasonfl[i],
+					  			   wrk_carPlanDesc[i], wrk_dateAvail[i], wrk_expectedSal[i], wrk_willTT[i]);
+		}	
+		
+		//Save Conviction Details to database
+		String[] prevConvic = request.getParameterValues("prevConvic");
+		String[] convicDetails = request.getParameterValues("convicDetails");
+		String[] convicUnderDrugT = request.getParameterValues("convicUnderDrugT");
+		String[] convicDTReason = request.getParameterValues("convicDTReason");
+						
+		for(int i = 0; i < prevConvic.length; i++)
+		{
+			applicant.addConviction(prevConvic[i], convicDetails[i], convicUnderDrugT[i], convicDTReason[i]);
+		}		
+		
+		//Save References Details to database
+		String[] refNameOne = request.getParameterValues("refNameOne");
+		String[] refOneComp = request.getParameterValues("refOneComp");
+		String[] refOnePos = request.getParameterValues("refOnePos");
+		String[] refOneRel = request.getParameterValues("refOneRel");
+		String[] refOneContactNum = request.getParameterValues("refOneContactNum");
+		String[] refNameTwo = request.getParameterValues("refNameTwo");
+		String[] refTwoComp = request.getParameterValues("refTwoComp");
+		String[] refTwoPos = request.getParameterValues("refTwoPos");
+		String[] refTwoRelation = request.getParameterValues("refTwoRelation");
+		String[] refTwoContactNum = request.getParameterValues("refTwoContactNum");
+		String[] refNameThree = request.getParameterValues("refNameThree");
+		String[] refThreeComp = request.getParameterValues("refThreeComp");
+		String[] refThreePos = request.getParameterValues("refThreePos");
+		String[] refThreeRelation = request.getParameterValues("refThreeRelation");
+		String[] refThreeContactNum = request.getParameterValues("refThreeContactNum");
+						
+		for(int i = 0; i < refNameOne.length; i++)
+		{
+			applicant.addReferences(refNameOne[i], refOneComp[i], refOnePos[i], refOneRel[i], refOneContactNum[i],
+					refNameTwo[i], refTwoComp[i], refTwoPos[i], refTwoRelation[i], refTwoContactNum[i],
+					refNameThree[i], refThreeComp[i], refThreePos[i], refThreeRelation[i], refThreeContactNum[i]);
+		}		
+						
 		applicantsService.saveApplicant(applicant);
 		return "redirect:/";
 	}

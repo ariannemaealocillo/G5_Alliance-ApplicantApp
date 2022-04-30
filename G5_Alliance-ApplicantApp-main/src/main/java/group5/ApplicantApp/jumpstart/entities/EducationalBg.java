@@ -17,52 +17,52 @@ public class EducationalBg {
 	@GeneratedValue(strategy =  GenerationType.IDENTITY)
 	private long educ_id;
 	
-	@Column(name = "educ_nameGS")
+	@Column(name = "educ_nameGS", columnDefinition= "VARCHAR(30)")
 	private String educNameGS;
 	
-	@Column(name = "educ_yrsGS")
+	@Column(name = "educ_yrsGS", columnDefinition= "VARCHAR(15)")
 	private String educYrsGS;
 	
-	@Column(name = "educ_degreeGS")
+	@Column(name = "educ_degreeGS", columnDefinition= "VARCHAR(60)")
 	private String educDegreeGS;
 	
-	@Column(name = "educ_achievementGS")
+	@Column(name = "educ_achievementGS", columnDefinition= "VARCHAR(50)")
 	private String educAchievementGS;
 	
-	@Column(name = "educ_nameHS")
+	@Column(name = "educ_nameHS", columnDefinition= "VARCHAR(30)")
 	private String educNameHS;
 	
-	@Column(name = "educ_yrsHS")
+	@Column(name = "educ_yrsHS", columnDefinition= "VARCHAR(15)")
 	private String educYrsHS;
 	
-	@Column(name = "educ_degreeHS")
+	@Column(name = "educ_degreeHS", columnDefinition= "VARCHAR(60)")
 	private String educDegreeHS;
 	
-	@Column(name = "educ_achievementHS")
+	@Column(name = "educ_achievementHS", columnDefinition= "VARCHAR(50)")
 	private String educAchievementHS;
 	
-	@Column(name = "educ_nameCS")
+	@Column(name = "educ_nameCS", columnDefinition= "VARCHAR(30)")
 	private String educNameCS;
 	
-	@Column(name = "educ_yrsCS")
+	@Column(name = "educ_yrsCS", columnDefinition= "VARCHAR(15)")
 	private String educYrsCS;
 	
-	@Column(name = "educ_degreeCS")
+	@Column(name = "educ_degreeCS", columnDefinition= "VARCHAR(60)")
 	private String educDegreeCS;
 	
-	@Column(name = "educ_achievementCS")
+	@Column(name = "educ_achievementCS", columnDefinition= "VARCHAR(50)")
 	private String educAchievementCS;
 	
-	@Column(name = "educ_nameMS")
+	@Column(name = "educ_nameMS", columnDefinition= "VARCHAR(30)")
 	private String educNameMS;
 	
-	@Column(name = "educ_yrsMS")
+	@Column(name = "educ_yrsMS", columnDefinition= "VARCHAR(15)")
 	private String educYrsMS;
 	
-	@Column(name = "educ_degreeMS")
+	@Column(name = "educ_degreeMS", columnDefinition= "VARCHAR(60)")
 	private String educDegreeMS;
 	
-	@Column(name = "educ_achievementMS")
+	@Column(name = "educ_achievementMS", columnDefinition= "VARCHAR(50)")
 	private String educAchievementMS;
 	
 	@ManyToOne

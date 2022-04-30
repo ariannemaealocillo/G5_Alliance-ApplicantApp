@@ -17,34 +17,34 @@ public class Family {
 	@GeneratedValue(strategy =  GenerationType.IDENTITY)
 	private long fam_id;
 	
-	@Column(name = "fambg_fatherName")
+	@Column(name = "fambg_fatherName", columnDefinition= "VARCHAR(30)")
 	private String fbfatherName;
 	
-	@Column(name = "fambg_fatherOccup")
+	@Column(name = "fambg_fatherOccup", columnDefinition= "VARCHAR(20)")
 	private String fbfatherOccup;
 	
-	@Column(name = "fambg_fatherComp")
+	@Column(name = "fambg_fatherComp", columnDefinition= "VARCHAR(30)")
 	private String fbfatherComp;
 	
-	@Column(name = "fambg_fatherAge")
+	@Column(name = "fambg_fatherAge", columnDefinition= "VARCHAR(3)")
 	private String fbfatherAge;
 	
-	@Column(name = "fambg_motherName")
+	@Column(name = "fambg_motherName", columnDefinition= "VARCHAR(30)")
 	private String fbmotherName;
 	
-	@Column(name = "fambg_motherOccup")
+	@Column(name = "fambg_motherOccup", columnDefinition= "VARCHAR(20)")
 	private String fbmotherOccup;
 	
-	@Column(name = "fambg_motherComp")
+	@Column(name = "fambg_motherComp", columnDefinition= "VARCHAR(30)")
 	private String fbmotherComp;
 	
-	@Column(name = "fambg_motherAge")
+	@Column(name = "fambg_motherAge", columnDefinition= "VARCHAR(3)")
 	private String fbmotherAge;
 	
-	@Column(name = "fambg_numOfSiblings")
+	@Column(name = "fambg_numOfSiblings", columnDefinition= "VARCHAR(3)")
 	private String fbNumSiblings;
 	
-	@Column(name = "fambg_birthOrder")
+	@Column(name = "fambg_birthOrder", columnDefinition= "VARCHAR(10)")
 	private String fbBirthOrder;
 	
 	@ManyToOne
