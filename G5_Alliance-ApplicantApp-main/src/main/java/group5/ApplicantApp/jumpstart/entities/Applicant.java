@@ -100,6 +100,18 @@ public class Applicant {
 	
 	@OneToMany(mappedBy = "applicant",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	private List<Thesis>  appThesis = new ArrayList<>();
+	
+	@OneToMany(mappedBy = "applicant",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+	private List<Extracurricular>  appExtraCurr = new ArrayList<>();
+	
+	@OneToMany(mappedBy = "applicant",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+	private List<WorkExperience>  appWorkExp = new ArrayList<>();
+	
+	@OneToMany(mappedBy = "applicant",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+	private List<Conviction>  appConvic = new ArrayList<>();
+	
+	@OneToMany(mappedBy = "applicant",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+	private List<References>  appReferences = new ArrayList<>();
 
 	public long getApp_id() {
 		return app_id;
@@ -293,6 +305,38 @@ public class Applicant {
 		this.appThesis = appThesis;
 	}
 
+	public List<Extracurricular> getAppExtraCurr() {
+		return appExtraCurr;
+	}
+
+	public void setAppExtraCurr(List<Extracurricular> appExtraCurr) {
+		this.appExtraCurr = appExtraCurr;
+	}
+	
+	public List<WorkExperience> getAppWorkExp() {
+		return appWorkExp;
+	}
+
+	public void setAppWorkExp(List<WorkExperience> appWorkExp) {
+		this.appWorkExp = appWorkExp;
+	}
+	
+	public List<Conviction> getAppConvic() {
+		return appConvic;
+	}
+
+	public void setAppConvic(List<Conviction> appConvic) {
+		this.appConvic = appConvic;
+	}
+
+	public List<References> getAppReferences() {
+		return appReferences;
+	}
+
+	public void setAppReferences(List<References> appReferences) {
+		this.appReferences = appReferences;
+	}
+
 	public void addConPerson(String conName, String conNum, String conRelation, String conAddress) {
 		this.conPerson.add(new ContactPerson(conName, conNum, conRelation, conAddress, this));
 	}
@@ -315,5 +359,31 @@ public class Applicant {
 	
 	public void addThesis(String thesisSubj, String thesisTitle, String thesisProgLang, String thesisDesc, String thesisRole, String thesisTName, String thesisContactNum, String thesisGrade){
 		this.appThesis.add(new Thesis(thesisSubj, thesisTitle, thesisProgLang, thesisDesc, thesisRole, thesisTName, thesisContactNum, thesisGrade, this));
+	}
+	
+	public void addExtraCurr(String extraActOne, String extraActOneRole, String extraActTwo, String extraActTwoRole){
+		this.appExtraCurr.add(new Extracurricular(extraActOne, extraActOneRole, extraActTwo, extraActTwoRole, this));
+	}
+	
+	public void addWorkExp(String wrkCompOne, String wrkOne_dur, String wrkOne_pos, String wrkOne_sal, String wrkOne_dirtSV, String wrkOne_reasonfl,
+			String wrkCompTwo, String wrkTwo_dur, String wrkTwo_pos, String wrkTwo_sal, String wrkTwo_dirtSV, String wrkTwo_reasonfl,
+			String wrkCompThree, String wrkThree_dur, String wrkThree_pos, String wrkThree_sal, String wrkThree_dirtSV, String wrkThree_reasonfl,
+			String wrk_carPlanDesc, String wrk_dateAvail, String wrk_expectedSal, String wrk_willTT) {
+		this.appWorkExp.add(new WorkExperience(wrkCompOne, wrkOne_dur, wrkOne_pos, wrkOne_sal, wrkOne_dirtSV, wrkOne_reasonfl,
+				wrkCompTwo, wrkTwo_dur, wrkTwo_pos, wrkTwo_sal, wrkTwo_dirtSV, wrkTwo_reasonfl,
+				wrkCompThree, wrkThree_dur, wrkThree_pos, wrkThree_sal, wrkThree_dirtSV, wrkThree_reasonfl,
+				wrk_carPlanDesc, wrk_dateAvail, wrk_expectedSal, wrk_willTT, this));
+	}
+	
+	public void addConviction(String prevConvic, String convicDetails, String convicUnderDrugT, String convicDTReason){
+		this.appConvic.add(new Conviction(prevConvic, convicDetails, convicUnderDrugT, convicDTReason, this));
+	}
+	
+	public void addReferences(String refNameOne, String refOneComp, String refOnePos, String refOneRel, String refOneContactNum,
+			String refNameTwo, String refTwoComp, String refTwoPos, String refTwoRelation, String refTwoContactNum, 
+			String refNameThree, String refThreeComp, String refThreePos, String refThreeRelation, String refThreeContactNum){
+		this.appReferences.add(new References(refNameOne, refOneComp, refOnePos, refOneRel, refOneContactNum,
+		    refNameTwo, refTwoComp, refTwoPos, refTwoRelation, refTwoContactNum, 
+		    refNameThree, refThreeComp, refThreePos, refThreeRelation, refThreeContactNum, this));
 	}
 }
