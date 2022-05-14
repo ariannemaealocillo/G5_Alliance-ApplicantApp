@@ -46,7 +46,7 @@ public class ApplicantsController {
 	// display list of applicants
 	@GetMapping("/hrPage")
 	public String viewHomePage(Model model) {
-		return findPaginated(1, "firstName", "asc", model);		
+		return findPaginated(1, "afirstName", "asc", model);		
 	}
 	
 	@GetMapping("/showApplicantForm")
@@ -250,7 +250,7 @@ public class ApplicantsController {
 		
 		// set applicant as a model attribute to pre-populate the form
 		model.addAttribute("applicant", applicant);
-		return "update_employee";
+		return "update_applicant";
 	}
 	
 	@GetMapping("/deleteApplicant/{id}")
@@ -285,31 +285,31 @@ public class ApplicantsController {
 	
 	//login controller
 	
-	@Autowired
-    private LoginService userService;
-                       
-    @GetMapping("/login")
-          
-    public ModelAndView login() {
-     ModelAndView mav = new ModelAndView("login");
-        mav.addObject("user", new Login());
-        return mav;
-    }
- 
-    @PostMapping("/login")
-    public String login(@ModelAttribute("user") Login user ) {
-     Login oauthUser = userService.login(user.getEmail(), user.getPassword());
-     System.out.print(oauthUser);
-     if(Objects.nonNull(oauthUser)){
-    	 return "redirect:/hrPage";
-     } else {
-     return "redirect:/login";
-     }
-}
-    
-    @RequestMapping(value = {"/logout"}, method = RequestMethod.POST)
-    public String logoutDo(HttpServletRequest request,HttpServletResponse response)
-    {
-        return "redirect:/login";
-    }
+//	@Autowired
+//    private LoginService userService;
+//                       
+//    @GetMapping("/login")
+//          
+//    public ModelAndView login() {
+//     ModelAndView mav = new ModelAndView("login");
+//        mav.addObject("user", new Login());
+//        return mav;
+//    }
+// 
+//    @PostMapping("/login")
+//    public String login(@ModelAttribute("user") Login user ) {
+//     Login oauthUser = userService.login(user.getEmail(), user.getPassword());
+//     System.out.print(oauthUser);
+//     if(Objects.nonNull(oauthUser)){
+//    	 return "redirect:/hrPage";
+//     } else {
+//     return "redirect:/login";
+//     }
+//}
+//    
+//    @RequestMapping(value = {"/logout"}, method = RequestMethod.POST)
+//    public String logoutDo(HttpServletRequest request,HttpServletResponse response)
+//    {
+//        return "redirect:/login";
+//    }
 }

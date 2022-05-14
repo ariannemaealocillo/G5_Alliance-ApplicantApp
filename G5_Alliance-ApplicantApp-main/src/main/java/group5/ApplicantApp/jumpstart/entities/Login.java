@@ -1,5 +1,6 @@
 package group5.ApplicantApp.jumpstart.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,16 +14,19 @@ public class Login {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
     private String email;
+    @Column(updatable = false)
     private String password;
+    private String status;
  
 public Login()
 {
 }
  
-public Login(Long id, String email, String password) {
+public Login(Long id, String email, String password, String status) {
 this.id = id;
 this.email = email;
 this.password = password;
+this.status = status;
 
 }
 public Long getId() {
@@ -43,4 +47,15 @@ return password;
 public void setPassword(String password) {
 this.password = password;
 }
+
+public String getStatus() {
+	return status;
+}
+
+public void setStatus(String status) {
+	this.status = status;
+}
+
+
+
 }
