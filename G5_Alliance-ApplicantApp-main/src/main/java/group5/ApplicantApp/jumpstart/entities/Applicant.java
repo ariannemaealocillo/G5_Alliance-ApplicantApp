@@ -17,12 +17,6 @@ import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-
-import com.fasterxml.jackson.annotation.JsonInclude;
-
-
-
-@JsonInclude(JsonInclude.Include.NON_NULL)
 @Entity
 @Table(name = "applicants")
 public class Applicant {
@@ -52,9 +46,6 @@ public class Applicant {
 	@Column(name = "app_middleName", columnDefinition= "VARCHAR(30)")
 	private String amidName;
 	
-	@Column(name = "status")
-	private String status;
-	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date app_birthdate;
 	
@@ -63,7 +54,6 @@ public class Applicant {
 	
 	@Column(name = "app_sex", columnDefinition= "VARCHAR(10)")
 	private String asex;
-	
 	
 	@Column(name = "app_age")
 	private int aage;
@@ -83,7 +73,6 @@ public class Applicant {
 	@Column(name = "app_emailAdd", columnDefinition= "VARCHAR(70)")
 	private String aemailAdd;
 	
-
 	@Column(name = "app_philhealth", columnDefinition= "VARCHAR(20)")
 	private String aphilNum;
 	
@@ -170,14 +159,6 @@ public class Applicant {
 
 	public void setAmidName(String amidName) {
 		this.amidName = amidName;
-	}
-	
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
 	}
 
 	public Date getApp_birthdate() {
@@ -405,5 +386,4 @@ public class Applicant {
 		    refNameTwo, refTwoComp, refTwoPos, refTwoRelation, refTwoContactNum, 
 		    refNameThree, refThreeComp, refThreePos, refThreeRelation, refThreeContactNum, this));
 	}
-	
 }
