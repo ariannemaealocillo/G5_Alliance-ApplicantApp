@@ -46,7 +46,7 @@ public class ApplicantsController {
 	// display list of applicants
 	@GetMapping("/hrPage")
 	public String viewHomePage(Model model) {
-		return findPaginated(1, "firstName", "asc", model);		
+		return findPaginated(1, "afirstName", "asc", model);		
 	}
 	
 	@GetMapping("/showApplicantForm")
@@ -56,6 +56,7 @@ public class ApplicantsController {
 		model.addAttribute("applicant", applicant);
 		return "applicant_user";
 	}
+	
 	
 	@PostMapping("/saveApplicant")
 	public String saveApplicant(@ModelAttribute("applicant") Applicant applicant) {
@@ -253,7 +254,6 @@ public class ApplicantsController {
 		return "update_applicant";
 	}
 	
-
 	@GetMapping("/deleteApplicant/{id}")
 	public String deleteApplicant(@PathVariable (value = "id") long id) {
 		
@@ -283,7 +283,6 @@ public class ApplicantsController {
 		model.addAttribute("listApplicants", listApplicants);
 		return "index";
 	}
-	
 	
 	//login controller
 	

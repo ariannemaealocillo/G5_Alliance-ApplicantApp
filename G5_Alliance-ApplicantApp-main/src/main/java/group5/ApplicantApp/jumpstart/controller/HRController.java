@@ -124,7 +124,6 @@ public class HRController {
 		return "redirect:/showNewAddUsersForm";
 	}
 	
-	
     @GetMapping("/login")  
     public ModelAndView login() {
      ModelAndView mav = new ModelAndView("login");
