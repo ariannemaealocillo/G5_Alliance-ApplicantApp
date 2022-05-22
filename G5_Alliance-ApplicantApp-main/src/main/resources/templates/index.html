@@ -43,18 +43,18 @@ margin-right:3%;
 	<div class="container my-4">
 	<h1>Applicant List</h1>
 	
-	<!-- <a th:href = "@{/showNewEmployeeForm}" class="btn btn-primary btn-sm mb-3"> Add Applicant </a> -->
+	<!-- <a th:href = "@{/showNewAddUsersForm}" class="btn btn-primary btn-sm mb-3"> Add Applicant </a> -->
 	
 		<table border="1" class = "table table-striped table-responsive-md">
 			<thead>
 				<tr>
 					<th>
 						<a th:href="@{'/page/' + ${currentPage} + '?sortField=firstName&sortDir=' + ${reverseSortDir}}">
-							Applicant First Name</a>
+							First Name</a>
 					</th>
 					<th>
 					<a th:href="@{'/page/' + ${currentPage} + '?sortField=lastName&sortDir=' + ${reverseSortDir}}">
-							Applicant Last Name</a>
+							Last Name</a>
 					</th>
 					
 					<th>
@@ -64,7 +64,11 @@ margin-right:3%;
 					
 					<th>
 					<a th:href="@{'/page/' + ${currentPage} + '?sortField=email&sortDir=' + ${reverseSortDir}}">
-							Applicant Email</a>
+							Email</a>
+					</th>
+					<th>
+					<a th:href="@{'/page/' + ${currentPage} + '?sortField=jobpos&sortDir=' + ${reverseSortDir}}">
+							Job Position</a>
 					</th>
 					<th>
 					<a th:href="@{'/page/' + ${currentPage} + '?sortField=status&sortDir=' + ${reverseSortDir}}">
@@ -74,14 +78,17 @@ margin-right:3%;
 				</tr>
 			</thead>
 			<tbody>	
-				<tr th:each="applicant : ${listApplicants}">
-					<td th:text="${applicant.afirstName}"></td>
-					<td th:text="${applicant.alastName}"></td>
-					<td th:text="${#dates.format(applicant.app_dateApplied, 'yyyy/dd/MM')}"></td>
-					<td th:text="${applicant.aemailAdd}"></td>
-					<td th:text="${applicant.status}"></td>
-					<td> <a th:href="@{/showFormForUpdate/{id}(id=${applicant.app_id})}" class="btn btn-primary">Update</a>
-					    <a th:href="@{/deleteApplicant/{id}(id=${applicant.app_id})}" class="btn btn-danger">Delete</a>
+				<tr th:each="applicants : ${listApplicants}">
+					<td th:text="${applicants.afirstName}"></td>
+					<td th:text="${applicants.alastName}"></td>
+					<td th:text="${#dates.format(applicants.app_dateApplied, 'yyyy/dd/MM')}"></td>
+					<td th:text="${applicants.aemailAdd}"></td>
+					<td th:text="${applicants.ajobPos}"></td>
+					<td th:text="${applicants.status}"></td>
+					<td> 
+						<a th:href="@{/showFormForUpdate/{id}(id=${applicants.app_id})}" class="btn btn-primary">Update</a>
+						<a th:href="@{/deleteApplicant/{id}(id=${applicants.app_id})}" class="btn btn-info">View Info</a>
+					    <a th:href="@{/deleteApplicant/{id}(id=${applicants.app_id})}" class="btn btn-danger">Delete</a>
 					</td>
 				</tr>
 			</tbody>
